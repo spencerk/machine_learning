@@ -16,17 +16,22 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
     %
+    prediction = 0.0;
+    for i = 1:m
+      prediction = prediction + theta(i) * X(i)
+      %theta = theta - (alpha/m) * (X(iter) - y(iter) * X(iter))
+    end
 
-    %theta = theta - alpha * ((1/m) * (X(iter) - y(iter) * X(iter)))
-                  
 
-
-
+    %theta = theta - X*theta; 
 
     % ============================================================
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCost(X, y, theta);
+    fprintf('Cost:\n');
+    fprintf('%f\n', theta);
+
 
 end
 
